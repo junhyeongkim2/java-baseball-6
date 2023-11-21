@@ -5,16 +5,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Computer {
+
+    List<Integer> ComputerNumbers = new ArrayList<>();
+
     public List<Integer> createNumbers() {
-        List<Integer> numbers = new ArrayList<>();
-        while (numbers.size() < 3) {
+        while (ComputerNumbers.size() < 3) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
-            if (!numbers.contains(randomNumber)) {
-                numbers.add(randomNumber);
+            if (!ComputerNumbers.contains(randomNumber)) {
+                ComputerNumbers.add(randomNumber);
             }
         }
-        return numbers;
+        return ComputerNumbers;
     }
 
 
+    public int compareBallNumbers(List<Integer> userNumbers) {
+        int ballCount = 0;
+        for (int i = 0; i < userNumbers.size(); i++) {
+            if (ComputerNumbers.contains(userNumbers.get(i)) && userNumbers.get(i) != ComputerNumbers.get(i)) {
+                ballCount++;
+            }
+        }
+        return ballCount;
+    }
 }
