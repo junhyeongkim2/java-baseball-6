@@ -64,4 +64,14 @@ public class ComputerTest {
     }
 
 
+    @DisplayName("컴퓨터 번호 스트라이크 비교 3스트라이크 정상 작동 테스트")
+    @Test
+    void compareStrikeNumbers_EqualThreeStrikeResult_Success() {
+        List<Integer> userNumbers = List.of(9, 4, 7);
+        System.out.print(computer.createNumbers());
+        int strikeCount = computer.compareStrikeNumbers(userNumbers);
+        assertThat(strikeCount).isEqualTo(3);
+    }
+
+
 }

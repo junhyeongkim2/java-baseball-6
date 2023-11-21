@@ -6,26 +6,30 @@ import java.util.List;
 
 public class Computer {
 
-    List<Integer> ComputerNumbers = new ArrayList<>();
+    List<Integer> computerNumbers = new ArrayList<>();
 
     public List<Integer> createNumbers() {
-        while (ComputerNumbers.size() < 3) {
+        while (computerNumbers.size() < 3) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
-            if (!ComputerNumbers.contains(randomNumber)) {
-                ComputerNumbers.add(randomNumber);
+            if (!computerNumbers.contains(randomNumber)) {
+                computerNumbers.add(randomNumber);
             }
         }
-        return ComputerNumbers;
+        return computerNumbers;
     }
 
 
     public int compareBallNumbers(List<Integer> userNumbers) {
         int ballCount = 0;
         for (int i = 0; i < userNumbers.size(); i++) {
-            if (ComputerNumbers.contains(userNumbers.get(i)) && userNumbers.get(i) != ComputerNumbers.get(i)) {
+            if (computerNumbers.contains(userNumbers.get(i)) && userNumbers.get(i) != computerNumbers.get(i)) {
                 ballCount++;
             }
         }
         return ballCount;
+    }
+
+    public int compareStrikeNumbers(List<Integer> userNumbers) {
+        return (int) userNumbers.stream().filter(userNumber -> computerNumbers.contains(userNumber)).count();
     }
 }
