@@ -32,4 +32,19 @@ public class Computer {
     public int compareStrikeNumbers(List<Integer> userNumbers) {
         return (int) userNumbers.stream().filter(userNumber -> computerNumbers.contains(userNumber)).count();
     }
+
+    public List<Integer> compareNumbers(String userNumbers) {
+        List<Integer> numbers = transformStringtoList(userNumbers);
+        return List.of(compareStrikeNumbers(numbers), compareBallNumbers(numbers));
+    }
+
+    public List<Integer> transformStringtoList(String userNumbers) {
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < userNumbers.length(); i++) {
+            numbers.add(userNumbers.charAt(i) - '0');
+        }
+        return numbers;
+    }
+
+
 }

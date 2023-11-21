@@ -1,8 +1,7 @@
-package baseball;
+package baseball.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import baseball.model.Computer;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -72,6 +71,6 @@ public class ComputerTest {
         int strikeCount = computer.compareStrikeNumbers(userNumbers);
         assertThat(strikeCount).isEqualTo(3);
     }
-
+    
 
 }
