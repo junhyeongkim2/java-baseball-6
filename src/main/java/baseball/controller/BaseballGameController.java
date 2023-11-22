@@ -13,22 +13,21 @@ public class BaseballGameController {
         computer = new Computer();
         computer.createNumbers();
         OutputView.printStartMessage();
+        repeatGame();
+    }
 
+    public void repeatGame() {
         do {
             List<Integer> result = computer.compareNumbers(InputView.readUserNumbers());
             OutputView.printResult(result);
             if (result.get(0) == 3) {
-                int retryNumber = Integer.parseInt(InputView.readRetryNumber());
-                if (retryNumber == 2) {
+                if (Integer.parseInt(InputView.readRetryNumber()) == 2) {
                     break;
                 }
                 computer.createNumbers();
                 continue;
             }
-
-
         } while (true);
-
     }
 
 
