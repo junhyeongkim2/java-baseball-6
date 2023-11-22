@@ -15,6 +15,7 @@ public class Computer {
                 computerNumbers.add(randomNumber);
             }
         }
+        System.out.println(computerNumbers);
         return computerNumbers;
     }
 
@@ -30,7 +31,13 @@ public class Computer {
     }
 
     public int compareStrikeNumbers(List<Integer> userNumbers) {
-        return (int) userNumbers.stream().filter(userNumber -> computerNumbers.contains(userNumber)).count();
+        int strikeCount = 0;
+        for (int i = 0; i < userNumbers.size(); i++) {
+            if (userNumbers.get(i) == computerNumbers.get(i)) {
+                strikeCount++;
+            }
+        }
+        return strikeCount;
     }
 
     public List<Integer> compareNumbers(String userNumbers) {
