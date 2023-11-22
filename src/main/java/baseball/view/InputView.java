@@ -33,9 +33,12 @@ public class InputView {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("[ERROR] 잘못된 입력이 주어졌습니다. 게임을 종료합니다.");
         }
-
-
     }
 
+    public static void validateRetryNumber(String input) {
+        if (!input.equals("1") && !input.equals("2")) {
+            throw new IllegalArgumentException("[ERROR] 잘못된 입력이 주어졌습니다. 게임을 종료합니다.");
+        }
 
+    }
 }

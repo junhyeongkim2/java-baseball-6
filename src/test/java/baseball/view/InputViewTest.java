@@ -24,6 +24,17 @@ public class InputViewTest {
                 IllegalArgumentException.class);
         assertThatThrownBy(() -> InputView.validateIsIntegerUserNumbers("#$#")).isInstanceOf(
                 IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateIsIntegerUserNumbers("")).isInstanceOf(
+                IllegalArgumentException.class);
+    }
+
+
+    @DisplayName("1 또는 2가 아닌 재시작 숫자가 입력 되었을 경우 예외 발생")
+    @Test
+    void readRetryNumber() {
+        assertThatThrownBy(() -> InputView.validateRetryNumber("3")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateRetryNumber("4")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateRetryNumber("0")).isInstanceOf(IllegalArgumentException.class);
     }
 
 
