@@ -1,8 +1,10 @@
 package baseball.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.List;
 
 public class InputView {
+
 
     public static String readUserNumbers() {
         System.out.print("숫자를 입력해주세요 : ");
@@ -22,6 +24,17 @@ public class InputView {
         if (input.length() != 3) {
             throw new IllegalArgumentException("[ERROR] 잘못된 입력이 주어졌습니다. 게임을 종료합니다.");
         }
+    }
+
+    public static void validateIsIntegerUserNumbers(String input) {
+        List<String> splitedInputs = List.of(input.split(""));
+        try {
+            splitedInputs.stream().forEach(splitedInput -> Integer.parseInt(splitedInput));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 잘못된 입력이 주어졌습니다. 게임을 종료합니다.");
+        }
+
+
     }
 
 

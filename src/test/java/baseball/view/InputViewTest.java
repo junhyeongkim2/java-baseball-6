@@ -11,6 +11,19 @@ public class InputViewTest {
     @Test
     void readUserNumbers_IsNotThreeNumber_ExceptionThrow() {
         assertThatThrownBy(() -> InputView.validateIsThreeNumber("3655")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateIsThreeNumber("36")).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateIsThreeNumber("3")).isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("숫자가 아닌 값이 들어왔을 경우 예외 발생")
+    @Test
+    void readUserNumbers_IsNotInteger_ExceptionThrow() {
+        assertThatThrownBy(() -> InputView.validateIsIntegerUserNumbers("a35")).isInstanceOf(
+                IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateIsIntegerUserNumbers("eee")).isInstanceOf(
+                IllegalArgumentException.class);
+        assertThatThrownBy(() -> InputView.validateIsIntegerUserNumbers("#$#")).isInstanceOf(
+                IllegalArgumentException.class);
     }
 
 
