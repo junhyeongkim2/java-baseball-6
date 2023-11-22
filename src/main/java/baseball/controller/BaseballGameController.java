@@ -16,15 +16,15 @@ public class BaseballGameController {
 
         do {
             List<Integer> result = computer.compareNumbers(InputView.readUserNumbers());
-
+            OutputView.printResult(result);
             if (result.get(0) == 3) {
                 int retryNumber = Integer.parseInt(InputView.readRetryNumber());
                 if (retryNumber == 2) {
                     break;
                 }
+                computer.createNumbers();
                 continue;
             }
-            OutputView.printResult(result);
 
 
         } while (true);

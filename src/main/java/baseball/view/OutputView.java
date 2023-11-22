@@ -12,7 +12,7 @@ public class OutputView {
     public static void printResult(List<Integer> result) {
 
         if (result.get(1) != 0) {
-            System.out.print(result.get(1) + "볼");
+            System.out.print(result.get(1) + "볼 ");
         }
 
         if (result.get(0) != 0) {
